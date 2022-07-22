@@ -1,0 +1,22 @@
+#Floating Point Numbers
+
+#Exercício: Darts
+
+class Darts
+    def initialize(x, y)
+      @x= x
+      @y = y
+    end
+  
+    def score
+      if @x**2 + @y**2 <= 1
+        return 10
+      elsif @x**2 + @y**2 <= 25
+        return 5
+      elsif @x**2 + @y**2 <= 100
+        return 1
+      else
+        return 0
+      end
+    end
+  end

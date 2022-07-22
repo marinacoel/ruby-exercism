@@ -1,0 +1,37 @@
+#Raising Exceptions
+
+#Execício: Simple Calculator
+
+class SimpleCalculator
+    ALLOWED_OPERATIONS = ['+', '/', '*'].freeze
+  
+    class UnsupportedOperation  < StandardError
+    end
+  
+    def self.calculate(first_operand, second_operand, operation)
+  
+      begin
+        case operation
+        when "+"
+        
+          return "#{first_operand} + #{second_operand} = #{first_operand + second_operand}"
+          
+        when "/"
+  
+          return "#{first_operand} / #{second_operand} = #{first_operand / second_operand}"
+          
+        when "*"
+          return "#{first_operand} * #{second_operand} = #{first_operand * second_operand}"
+        else
+          raise UnsupportedOperation
+        end
+      
+      rescue ZeroDivisionError
+        return "Division by zero is not allowed."
+      rescue UnsupportedOperation
+        raise UnsupportedOperation
+      rescue TypeError
+        raise ArgumentError
+      end
+    end
+  end

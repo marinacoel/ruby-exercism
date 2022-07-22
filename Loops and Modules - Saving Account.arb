@@ -1,0 +1,27 @@
+#Esse exercício corresponde a: Loops e Modules
+
+#Exercício: Savings Account
+
+module SavingsAccount
+    @@rate = 0.0
+    
+    def self.interest_rate(balance)
+      if balance < 0
+        @@rate = -3.213
+      elsif balance < 1000 
+        @@rate = 0.5
+      elsif balance < 5000
+        @@rate = 1.621
+      elsif balance >= 5000
+        @@rate = 2.475
+      end
+      return @@rate
+    end
+  
+    def self.annual_balance_update(balance)
+      if balance < 0
+        return balance - (interest_rate(balance)/100 * balance)
+      else
+        return balance + (interest_rate(balance)/100 * balance)
+      end
+    end  
